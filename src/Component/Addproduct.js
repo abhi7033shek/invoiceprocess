@@ -64,20 +64,13 @@ export const Addproduct = ({ onClose, onSubmit, defaultValue }) => {
 
     const product = productData.find(p => p.partno === formState.partno); 
     if (product) {
+      const updatedQty = parseInt(formState.qty, 10);
+      onSubmit({ id: product.id, qty: updatedQty, sold: updatedQty });
+    }
 
-      onSubmit({ 
-        id: product.id, qty: parseInt(formState.qty, 10) }); }
-
-   
-
-   
-   
     onSubmit(formState);
     onClose();
   };
-
-  
-  
 
   return (
     <div className="modal-container" onClick={(e) => { if (e.target.className === 'modal-container') onClose(); }}>
@@ -102,15 +95,15 @@ export const Addproduct = ({ onClose, onSubmit, defaultValue }) => {
           )}
           <div className="form-group">
             <label htmlFor="qty">Qty</label>
-            <input type='number' name='qty' onChange={handleChange} value={formState.qty} />
+            <input type="number" name="qty" onChange={handleChange} value={formState.qty} />
           </div>
-          <div className='form-group'>
-            <label htmlFor='unitprice'>Unit price</label>
-            <input type='number' name='unitprice' onChange={handleChange} value={formState.unitprice} />
+          <div className="form-group">
+            <label htmlFor="unitprice">Unit price</label>
+            <input type="number" name="unitprice" onChange={handleChange} value={formState.unitprice} />
           </div>
-          <div className='form-group'>
-            <label htmlFor='taxpercent'>Tax in %</label>
-            <input type='number' name='taxpercent' onChange={handleChange} value={formState.taxpercent} />
+          <div className="form-group">
+            <label htmlFor="taxpercent">Tax in %</label>
+            <input type="number" name="taxpercent" onChange={handleChange} value={formState.taxpercent} />
           </div>
 
           {errors && <div className="error">{`Please include: ${errors}`}</div>}

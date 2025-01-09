@@ -29,23 +29,19 @@ export default function AddProductInStock() {
     const updatedValue = value ? parseInt(value, 10) : 0;
 
     const updatedProducts = products.map(product =>
-      product.id === id ? { 
-        ...product, 
-        [name]: updatedValue, 
-        inStock: name === 'qty' ? updatedValue - product.sold : product.qty - updatedValue 
+      product.id === id ? {
+        ...product,
+        [name]: updatedValue,
+        inStock: name === 'qty' ? updatedValue - product.sold : product.qty - updatedValue
       } : product
+
     );
 
     setProducts(updatedProducts);
     localStorage.setItem('products', JSON.stringify(updatedProducts));
-    
-    
   };
-  const updateSoldData = (id, qty) => { const updatedProducts = products.map(product => product.id === id ? { ...product, sold: product.sold + qty, inStock: product.qty - (product.sold + qty) } : product ); setProducts(updatedProducts); localStorage.setItem('products', JSON.stringify(updatedProducts)); };
 
   
-
- 
 
   const renderRows = (category) => {
     return products
@@ -65,6 +61,8 @@ export default function AddProductInStock() {
               type="number"
               value={product.sold}
               onChange={(e) => handleUpdate(product.id, 'sold', e.target.value)}
+              
+             
             />
           </td>
           <td>{product.inStock}</td>
@@ -98,7 +96,6 @@ export default function AddProductInStock() {
           {renderRows('Antivirus server')}
         </tbody>
       </table>
-      
     </div>
   );
 }

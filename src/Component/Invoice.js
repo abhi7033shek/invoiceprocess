@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './Invoice.css';
-import logo from '../logo.jpg';
+
 import { Addproduct } from './Addproduct';
-import Subtotal from './Subtotal';
+
 import { Table } from './Table';
-import GSTModal from './GSTModal';
+
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 function getDate() {
@@ -41,7 +41,7 @@ export const Invoice = ({ onAddRow, onDeleteRow, onEditRow, onResetRows }) => {
   const [customerDetails, setCustomerDetails] = useState(invoiceData.customerDetails);
   const [addProductOpen, setAddProductOpen] = useState(false);
   const [rowToEdit, setRowToEdit] = useState(null);
-  const [isGSTModalOpen, setIsGSTModalOpen] = useState(false);
+  
   const [selectedGST, setSelectedGST] = useState('');
   const navigate = useNavigate();
   
@@ -54,13 +54,13 @@ export const Invoice = ({ onAddRow, onDeleteRow, onEditRow, onResetRows }) => {
   const AddbtnRef = useRef(null);
  
 
-  const calculateSubtotal = () => {
+  const calculateSubtotal = useCallback(() => {
     return rows.reduce((total, row) => total + row.qty * row.unitprice , 0).toFixed(2);
-  };
+  }, [rows]);
 
   useEffect(() => {
     setSubtotal(parseFloat(calculateSubtotal()));
-  }, [rows]);
+  }, [rows, calculateSubtotal]);
 
 
   const totalGST = rows.reduce((total, row) => total + (row.qty * row.unitprice * row.taxpercent) / 100, 0); 
@@ -90,13 +90,9 @@ export const Invoice = ({ onAddRow, onDeleteRow, onEditRow, onResetRows }) => {
     setAddProductOpen(true);
   };
 
-  const openGSTModal = () => {
-    setIsGSTModalOpen(true);
-  };
+ 
 
-  const closeGSTModal = () => {
-    setIsGSTModalOpen(false);
-  };
+  
 
   const handleGSTSelection = (gstType) => {
     let gstAmount = 0;
@@ -111,7 +107,7 @@ export const Invoice = ({ onAddRow, onDeleteRow, onEditRow, onResetRows }) => {
 
     setGrandTotal((parseFloat(subtotal) + gstAmount * (gstType === 'CGST_SGST' ? 2 : 1)).toFixed(2));
     setSelectedGST(gstType);
-    closeGSTModal();
+  
   };
   
   
@@ -156,7 +152,7 @@ export const Invoice = ({ onAddRow, onDeleteRow, onEditRow, onResetRows }) => {
       ref.current?.focus(); } 
     };
     useEffect(() => { handleGSTSelection(selectedGST); // Ensure GST is calculated initially }, 
-}, [subtotal]);
+}, );
   
   
 

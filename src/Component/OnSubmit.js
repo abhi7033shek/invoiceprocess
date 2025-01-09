@@ -1,16 +1,10 @@
-import { useState } from 'react';
+
 import React from 'react';
 import logo from '../logo.jpg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Invoice.css'; // Ensure you have this CSS file for print styles
 
-function getDate() {
-  const today = new Date();
-  const month = today.getMonth() + 1;
-  const year = today.getFullYear();
-  const date = today.getDate();
-  return `${year}/${month}/${date}`;
-}
+
 
 function OnSubmit() {
   const location = useLocation();
@@ -23,7 +17,7 @@ function OnSubmit() {
       selectedGST: ''
     }
   };
-  const [currentDate, setCurrentDate] = useState(getDate());
+  
   const navigate = useNavigate();
 
   const handleEdit = () => {
