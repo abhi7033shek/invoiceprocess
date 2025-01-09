@@ -1,0 +1,14 @@
+/* SearchInvoice.css */
+@media print {
+    .no-print {
+      display: none;
+    }
+  }
+  .no-print{
+    text-align: center;
+  }
+  .heading{
+    color: rgb(33, 65, 5);
+    background-color: blanchedalmond;
+  }
+  

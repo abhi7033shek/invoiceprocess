@@ -1,0 +1,361 @@
+.tax{
+    text-align: center;
+    font-display: bold;
+    font-size: 25;
+    margin: 0;
+}
+.customer-copy{
+    text-align: center;
+    font-size: 15px;
+    
+    
+   
+    
+}
+.mar-gin{
+    margin: 0;
+}
+.margi-n{
+    margin: 0;
+}
+table{
+    border-collapse: separate;
+    border-spacing: 0;
+    padding: 0;
+    border: 2px solid #0c0101;
+    margin: 1em;
+    float:right;
+  
+}
+table.fixed{
+    table-layout: fixed;
+    width: 350px;
+}
+table.fixed td {overflow:hidden;}
+td
+{
+    font-size: 1rem;
+    empty-cells: show;
+    border: 1px solid rgb(6, 3, 16);
+    padding: 0;
+    text-align: left;
+}
+th{
+    position: sticky;
+    left: 0;
+
+  z-index: 1;
+
+}
+td,th{
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #0f0101;
+}
+.height{
+    height: 20%;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.a4-page {
+    display: flex;
+    flex-direction: column;
+    width: 250mm;
+    height: 350mm;
+    margin: auto;
+    padding: 0mm;
+    box-sizing: border-box;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+}
+
+.fixed, .customer {
+    height: 7.85mm; /* Each table takes up 10% of the height */
+    width: 100%;
+}
+
+.sino {
+    flex-grow: 1;
+    width: 100%;
+    margin-bottom: 0mm;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 0;
+    border: 2px solid #0c0101;
+    width: 100%;
+    margin-bottom: 0mm;
+}
+
+table td, table th {
+    border: 1px solid rgb(6, 3, 16);
+    padding: 8px;
+    text-align: left;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 0mm;
+        
+    }
+    .a4-page {
+        width: 250mm;
+        height: 350mm;
+        zoom: 80%;
+    }
+    .main {
+        flex-direction: column;
+    }
+    .fixed, .customer {
+        height: 20mm; /* Ensure they take up 10% of the page height each */
+    }
+    .subtotal-table, .account {
+        page-break-inside: avoid;
+    }
+    .no-print {
+        display: none;
+    }
+    .customer-copy{
+        font-size: 15px;
+    }
+    .tax{
+        font-size: 25px;
+        font-display: bold;
+    }
+}
+
+    
+    .webpage{
+        width: 100%;
+        height: 200%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .customer{
+        float: center;
+        border: 2px solid #0c0101;
+        width: 202mm;
+        
+        
+    }
+    .quote{
+        float: left;
+    }
+    table.quote{
+        table-layout: fixed;
+        width: 480px;
+    }
+    table.quote td{
+        word-wrap:break-word;
+    text-align: left;
+    vertical-align: top;
+    }
+    table.potable{
+        table-layout: fixed;
+        width: 320px;
+       
+        background-color: white;
+    }
+    table.potable td{
+    text-align: left;
+    }
+table.customer{
+    table-layout: fixed;
+    width: 760px;
+}
+table.customer td{
+    word-wrap:break-word;
+    text-align: left;
+    vertical-align: top;
+}
+img{
+    width: 300px;
+    height: 100px;
+    
+   
+}
+table.sino{
+   
+    width: 760px;
+
+}
+table th.SI{
+    table-layout: fixed;
+}
+table.sino td{
+    word-wrap:break-word;
+    text-align: left;
+    vertical-align: top;
+}
+.main{
+    display: inline-table;
+  
+    
+}
+.button{
+    text-align: center;
+    align-items: center;
+
+}
+table.account{
+    text-align: center;
+    align-items: left;
+    table-layout: fixed;
+    width: 368px;
+    height: 236px;
+    
+}
+table.account th td{
+    text-align: center;
+    align-items: left;
+}
+table.subtotal-table{
+    width: 359px;
+    height: 225px;
+}
+.account-font{
+    font-size: 21px;
+    font-weight: 500;
+
+}
+.btn-total{
+    align-items: right;
+    float: right;
+    display: flex;
+    justify-content: flex-end;
+}
+/* SearchInvoice.css */
+@media print {
+    .no-print {
+      display: none;
+    }
+  }
+  .navinvoice{
+    text-align: center;
+    background-color: #0c0101;
+    color: aliceblue;
+    width: 100%;
+    height: 109px;
+  }
+  .search{
+    color: aqua;
+    background-color: bisque;
+    height: 25px;
+    text-align: center;
+  }
+  .view{
+    background-color: bisque;
+    height: 25px;
+    text-align: center;
+  }
+  
+  .out{
+    background-color: bisque;
+  }
+.quote{
+    background-color: aqua;
+}
+.black{
+    background-color: #0c0101;
+    color: white;
+}
+.footer{
+    text-align: center;
+    bottom: 0;
+}
+
+input[type=text]:focus {
+  background-color: lightblue;
+}
+textarea:focus{
+    background-color: lightblue;
+
+}
+.form {
+    width: 70%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.formmain {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form label {
+    flex: 1;
+    font-weight: bold;
+}
+
+.form input,
+.form textarea {
+    flex: 2;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form input[type='date'] {
+    flex: 2;
+}
+
+textarea {
+    height: 100px;
+}
+
+.form input:focus,
+.form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.total-sub{
+    align-items: righ;
+    text-align: center;
+}
+.gst-select{
+    text-align: center;
+}
+.table-gst{
+    display: flex; 
+    justify-content: center; /* Centers the table horizontally */ 
+    align-items: center; /* Centers the table vertically */  /* Full viewport height */
+}
+
+
+
+
